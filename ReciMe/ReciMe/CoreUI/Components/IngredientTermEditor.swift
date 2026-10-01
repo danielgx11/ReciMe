@@ -34,10 +34,14 @@ struct IngredientTermEditor: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(terms, id: \.self) { term in
-                            Button(term) {
+                            Button {
                                 terms.removeAll { $0 == term }
+                            } label: {
+                                Label(term, systemImage: Images.dismiss)
                             }
-                            .buttonStyle(.bordered).tint(Colors.blueberry)
+                            .buttonStyle(.bordered)
+                            .tint(Colors.blueberry)
+                            .accessibilityLabel(Strings.remove(term))
                         }
                     }
                 }
@@ -46,15 +50,8 @@ struct IngredientTermEditor: View {
     }
 
     private func add() {
-        let term = draft.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        guard !term.isEmpty, !terms.contains(where: { $0.localizedCaseInsensitiveCompare(term) == .orderedSame })
-        else {
-            return
+        if RecipeSearchCriteria.addTerm(draft, into: &terms, othersTerms: &otherTerms) {
+            draft = ""
         }
-
-        otherTerms.removeAll { $0.localizedCaseInsensitiveCompare(term) == .orderedSame }
-        terms.append(term)
-        draft = ""
     }
 }

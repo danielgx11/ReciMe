@@ -3,15 +3,16 @@ import SwiftUI
 struct ResultHeader: View {
     let count: Int
     let criteria: RecipeSearchCriteria
+
     var body: some View {
         HStack {
-            Text("\(count) \(count == 1 ? "recipe" : "recipes")")
+            Text(Strings.resultCount(count))
                 .font(.headline)
             Spacer()
             if criteria.hasActiveFilters {
-                Label("Filtered", systemImage: "slider.horizontal.3")
+                Label(Strings.filtered, systemImage: Images.sliders)
                     .font(.caption.weight(.semibold))
-                    .foregroundStyle(Color("Blueberry"))
+                    .foregroundStyle(Colors.blueberry)
             }
         }
     }

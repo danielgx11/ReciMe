@@ -5,28 +5,31 @@ struct RecipesHeader: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("CookbookHero")
+            Image(Images.cookbookHero)
                 .resizable()
                 .scaledToFill()
-                .frame(height: 240)
+                .frame(height: Metrics.heroHeight)
                 .clipped()
+
             LinearGradient(colors: [.clear, .black.opacity(0.72)], startPoint: .top, endPoint: .bottom)
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Cook your way")
+
+            VStack(alignment: .leading, spacing: Metrics.spacing8) {
+                Text(Strings.cookYourWay)
                     .font(.system(.largeTitle, design: .serif, weight: .bold))
-                Text("A little Brazilian warmth, whenever you need it.")
+                Text(Strings.cookbookTagline)
                     .font(.subheadline.weight(.medium))
-                Text("\(recipeCount) recipes to make your own")
+                Text(Strings.cookbookSize(recipeCount))
                     .font(.caption.weight(.bold))
-                    .padding(.horizontal, 10).padding(.vertical, 6)
-                    .background(Color("Mango"), in: Capsule())
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(.black)
+                    .padding(.horizontal, Metrics.spacing12)
+                    .padding(.vertical, Metrics.spacing8)
+                    .background(Colors.mango, in: Capsule())
             }
             .foregroundStyle(.white)
-            .padding(18)
+            .padding(Metrics.spacing20)
         }
-        .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: Metrics.spacing32, style: .continuous))
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Cook your way. \(recipeCount) recipes to make your own.")
+        .accessibilityLabel("\(Strings.cookYourWay). \(Strings.cookbookSize(recipeCount))")
     }
 }

@@ -53,7 +53,9 @@ struct FilterSheet: View {
             .navigationTitle(Strings.fineTuneSearch)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button(Strings.clear) { searchCriteria = .init() }
+                    Button(Strings.clear) {
+                        searchCriteria = searchCriteria.clearingAdvancedFilters
+                    }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(Strings.showRecipes) {

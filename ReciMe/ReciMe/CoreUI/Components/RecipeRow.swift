@@ -2,18 +2,19 @@ import SwiftUI
 
 struct RecipeRow: View {
     let recipe: Recipe
-    let isFavourite: Bool
 
     var body: some View {
         ZStack(alignment: .trailing) {
             NavigationLink {
-                RecipeDetailView(recipe: recipe, isFavourite: isFavourite)
+                RecipeDetailView(recipe: recipe)
             } label: {
-                HStack(spacing: 14) {
-                    RecipeArtwork(recipe: recipe).frame(width: 88, height: 88)
+                HStack(spacing: Metrics.spacing16) {
+                    RecipeArtwork(recipe: recipe)
+                        .frame(width: Metrics.artworkThumb, height: Metrics.artworkThumb)
 
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(recipe.title).font(.headline)
+                    VStack(alignment: .leading, spacing: Metrics.spacing8) {
+                        Text(recipe.title)
+                            .font(.headline)
                             .foregroundStyle(.primary)
 
                         Text(recipe.description)
@@ -21,21 +22,20 @@ struct RecipeRow: View {
                             .foregroundStyle(.secondary)
                             .lineLimit(2)
 
-                        Label("Serves \(recipe.servings)", systemImage: "person.2.fill")
+                        Label(Strings.serves(recipe.servings), systemImage: Images.people)
                             .font(.caption2.weight(.semibold))
-                            .foregroundStyle(Color("Blueberry"))
+                            .foregroundStyle(Colors.blueberry)
                     }
 
-                    Spacer(minLength: 38)
-
+                    Spacer(minLength: Metrics.spacing32)
                 }
-                .padding(10)
-                .background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .padding(Metrics.spacing8)
+                .background(Colors.cardSurface, in: RoundedRectangle(cornerRadius: Metrics.cardCornerRadius, style: .continuous))
             }
             .buttonStyle(.plain)
 
-            FavouriteButton(recipeID: recipe.id, isFavourite: isFavourite)
-                .padding(14)
+            FavouriteButton(recipeID: recipe.id)
+                .padding(Metrics.spacing16)
         }
     }
 }

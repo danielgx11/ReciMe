@@ -2,15 +2,15 @@ import SwiftUI
 
 struct RecipeCard: View {
     let recipe: Recipe
-    let isFavourite: Bool
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
             NavigationLink {
-                RecipeDetailView(recipe: recipe, isFavourite: isFavourite)
+                RecipeDetailView(recipe: recipe)
             } label: {
-                VStack(alignment: .leading, spacing: 10) {
-                    RecipeArtwork(recipe: recipe).frame(height: 128)
+                VStack(alignment: .leading, spacing: Metrics.spacing12) {
+                    RecipeArtwork(recipe: recipe)
+                        .frame(height: Metrics.cardArtworkHeight)
 
                     Text(recipe.title)
                         .font(.headline)
@@ -18,24 +18,26 @@ struct RecipeCard: View {
                         .lineLimit(2)
                         .multilineTextAlignment(.leading)
 
-                    HStack(spacing: 6) {
-                        Label("\(recipe.servings)", systemImage: "person.2.fill")
-
+                    HStack(spacing: Metrics.spacing8) {
+                        Label("\(recipe.servings)", systemImage: Images.people)
                         if recipe.dietaryAttributes.contains(.vegetarian) {
-                            Label("Veg", systemImage: "leaf.fill")
+                            Label(Strings.veg, systemImage: Images.leaf)
                         }
                     }
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
+
+                    Spacer(minLength: 0)
                 }
-                .padding(10)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .padding(Metrics.spacing12)
+                .frame(maxWidth: .infinity, alignment: .top)
+                .frame(height: Metrics.cardHeight)
+                .background(Colors.cardSurface, in: RoundedRectangle(cornerRadius: Metrics.cardCornerRadius, style: .continuous))
             }
             .buttonStyle(.plain)
 
-            FavouriteButton(recipeID: recipe.id, isFavourite: isFavourite)
-                .padding(10)
+            FavouriteButton(recipeID: recipe.id)
+                .padding(Metrics.spacing12)
         }
         .accessibilityElement(children: .contain)
     }

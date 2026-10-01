@@ -6,13 +6,18 @@ struct FavouriteButton: View {
     @Query private var favourites: [FavouriteRecipe]
 
     let recipeID: String
-    let isFavourite: Bool
+
+    private var favourite: FavouriteRecipe? {
+        favourites.first { $0.recipeID == recipeID }
+    }
 
     var body: some View {
-        Button(isFavourite ? Strings.removeFromSaved : Strings.saveRecipe,
-               systemImage: isFavourite ? Images.filledHeart : Images.heart) {
-
-            if let favourite = favourites.first(where: { $0.recipeID == recipeID }) {
+        let isFavourite = favourite != nil
+        Button(
+            isFavourite ? Strings.removeFromSaved : Strings.saveRecipe,
+            systemImage: isFavourite ? Images.filledHeart : Images.heart
+        ) {
+            if let favourite {
                 modelContext.delete(favourite)
             } else {
                 modelContext.insert(FavouriteRecipe(recipeID: recipeID))
