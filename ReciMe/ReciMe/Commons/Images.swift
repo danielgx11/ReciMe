@@ -12,4 +12,8 @@ enum Images {
     static let basket = "basket.fill"
     static let numberedList = "list.number"
     static let forkAndKnife = "fork.knife"
+    static let flame = "flame.fill"
+    static let sparkles = "sparkles"
+    static let circle = "circle"
+    static let dismiss = "xmark"
 }

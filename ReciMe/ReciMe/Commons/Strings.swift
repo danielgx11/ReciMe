@@ -31,6 +31,29 @@ enum Strings {
     static let tomatoExample = "e.g. tomato"
     static let mushroomExample = "e.g. mushroom"
     static let add = "Add"
+    static let loadFailed = "We couldn't open your cookbook. Please try again."
+    static let tryAgain = "Try again"
+    static let clearFilters = "Clear filters"
+    static let filtersApplied = "Filters applied"
+    static let noFiltersApplied = "No filters applied"
+    static let veg = "Veg"
+    static let favouritesUnavailable = "Saved recipes unavailable"
+
+    static func serves(_ count: Int) -> String {
+        "Serves \(count)"
+    }
+
+    static func resultCount(_ count: Int) -> String {
+        count == 1 ? "\(count) recipe" : "\(count) recipes"
+    }
+
+    static func cookbookSize(_ count: Int) -> String {
+        "\(count) recipes to make your own"
+    }
+
+    static func remove(_ term: String) -> String {
+        "Remove \(term)"
+    }
 
     enum Accessibility {
         static let removeFromSaved = "Remove recipe from saved"

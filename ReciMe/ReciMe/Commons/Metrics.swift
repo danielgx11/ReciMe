@@ -14,4 +14,5 @@ enum Metrics {
     static let cardArtworkHeight: CGFloat = 150
     static let heroHeight: CGFloat = 240
     static let gridMinimumWidth: CGFloat = 176
+    static let artworkThumb: CGFloat = 88
 }
