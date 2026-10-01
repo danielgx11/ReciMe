@@ -1,25 +1,35 @@
-import SwiftUI
+import os
 import SwiftData
+import SwiftUI
 
 @main
 struct ReciMeApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            FavouriteRecipe.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    private let container: ModelContainer?
 
+    init() {
+        let inMemory = ProcessInfo.processInfo.arguments.contains("-reset-favourites")
+        let schema = Schema([FavouriteRecipe.self])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: inMemory)
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            container = try ModelContainer(for: schema, configurations: [configuration])
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            AppLog.repository.error("Favourites store failed: \(error.localizedDescription, privacy: .public)")
+            container = nil
         }
-    }()
+    }
 
     var body: some Scene {
         WindowGroup {
-            RecipeRootView()
+            if let container {
+                RecipeRootView()
+                    .modelContainer(container)
+            } else {
+                ContentUnavailableView(
+                    Strings.favouritesUnavailable,
+                    systemImage: Images.warning,
+                    description: Text(Strings.loadFailed)
+                )
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
