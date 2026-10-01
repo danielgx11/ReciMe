@@ -13,7 +13,7 @@ nonisolated enum DietaryAttribute: String, Codable, CaseIterable, Hashable, Send
         case .vegetarian, .vegan: 
             "leaf.fill"
         case .glutenFree:
-            "wheat.arsl"
+            "laurel.trailing"
         case .dairyFree:
             "drop.fill"
         case .keto:

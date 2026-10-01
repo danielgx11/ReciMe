@@ -1,10 +1,3 @@
-//
-//  ReciMeApp.swift
-//  ReciMe
-//
-//  Created by Daniel Gomes Xavier on 29/09/26.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -12,7 +5,7 @@ import SwiftData
 struct ReciMeApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            FavouriteRecipe.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +18,7 @@ struct ReciMeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecipeRootView()
         }
         .modelContainer(sharedModelContainer)
     }
