@@ -11,4 +11,5 @@ enum Images {
     static let sliders = "slider.horizontal.3"
     static let basket = "basket.fill"
     static let numberedList = "list.number"
+    static let forkAndKnife = "fork.knife"
 }
