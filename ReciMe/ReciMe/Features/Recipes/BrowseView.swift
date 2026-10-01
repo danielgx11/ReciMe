@@ -43,7 +43,9 @@ struct BrowseView: View {
             .searchable(text: $criteria.query, prompt: "Search recipes or ingredients")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button { isShowingFilters = true } label: {
+                    Button {
+                        isShowingFilters = true
+                    } label: {
                         Label("Filter recipes", systemImage: criteria.hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
                     }
                     .accessibilityHint(criteria.hasActiveFilters ? "Filters applied" : "No filters applied")
