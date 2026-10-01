@@ -10,7 +10,7 @@ nonisolated enum DietaryAttribute: String, Codable, CaseIterable, Hashable, Send
 
     var symbol: String {
         switch self {
-        case .vegetarian, .vegan: 
+        case .vegetarian, .vegan:
             "leaf.fill"
         case .glutenFree:
             "laurel.trailing"
