@@ -1,10 +1,15 @@
+import SwiftData
 import SwiftUI
 
 struct FavoritesView: View {
     let recipes: [Recipe]
     let favouriteIDs: Set<String>
 
-    private var savedRecipes: [Recipe] { recipes.filter { favouriteIDs.contains($0.id) } }
+    private var savedRecipes: [Recipe] {
+        recipes.filter {
+            favouriteIDs.contains($0.id)
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -17,17 +22,28 @@ struct FavoritesView: View {
                     )
                 } else {
                     ScrollView {
-                        LazyVStack(spacing: 12) {
+                        LazyVStack(spacing: Metrics.spacing12) {
                             ForEach(savedRecipes) { recipe in
-                                RecipeRow(recipe: recipe, isFavourite: true)
+                                RecipeRow(recipe: recipe)
                             }
                         }
-                        .padding(16)
+                        .padding(Metrics.spacing16)
                     }
                     .background(Color(uiColor: .systemGroupedBackground))
                 }
             }
-            .navigationTitle("Saved")
+            .navigationTitle(Strings.saved)
         }
     }
+}
+
+// MARK: - PREVIEWS
+
+#Preview("Saved empty") {
+    FavoritesView(recipes: [], favouriteIDs: [])
+}
+
+#Preview("Saved") {
+    FavoritesView(recipes: [PreviewData.recipe], favouriteIDs: [PreviewData.recipe.id])
+        .modelContainer(PreviewData.container)
 }

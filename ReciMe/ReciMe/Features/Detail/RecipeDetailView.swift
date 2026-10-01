@@ -3,65 +3,67 @@ import SwiftUI
 
 struct RecipeDetailView: View {
     let recipe: Recipe
-    let isFavourite: Bool
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: Metrics.spacing24) {
                 RecipeArtwork(recipe: recipe)
-                    .frame(height: 260)
-                    .padding(.horizontal, 16)
+                    .frame(height: Metrics.heroHeight)
+                    .padding(.horizontal, Metrics.spacing16)
 
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: Metrics.spacing12) {
                     Text(recipe.title)
                         .font(.system(.largeTitle, design: .serif, weight: .bold))
 
                     Text(recipe.description)
                         .foregroundStyle(.secondary)
 
-                    HStack(spacing: 8) {
-                        Label("Serves \(recipe.servings)", systemImage: "person.2.fill")
-
-                        ForEach(recipe.dietaryAttributes, id: \.self) { attribute in
-                            Label(attribute.rawValue, systemImage: attribute.symbol)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: Metrics.spacing8) {
+                            Label(Strings.serves(recipe.servings), systemImage: Images.people)
+                            ForEach(recipe.dietaryAttributes, id: \.self) { attribute in
+                                Label(attribute.rawValue, systemImage: attribute.symbol)
+                            }
                         }
                     }
                     .font(.caption.weight(.semibold))
-                    .foregroundStyle(Color("Blueberry"))
+                    .foregroundStyle(Colors.blueberry)
 
                     Divider()
 
-                    RecipeSection(title: "Ingredients", symbol: "basket.fill") {
+                    RecipeSection(title: Strings.ingredients, symbol: Images.basket) {
                         ForEach(recipe.ingredients, id: \.self) { ingredient in
-                            Label(ingredient, systemImage: "circle")
+                            Label(ingredient, systemImage: Images.circle)
                                 .font(.body)
-                                .labelStyle(IngredientLabelStyle())
+                                .labelStyle(.ingredient)
                         }
                     }
 
-                    RecipeSection(title: "Method", symbol: "list.number") {
-                        ForEach(Array(recipe.instructions.enumerated()), id: \.element) { index, instruction in
-                            HStack(alignment: .top, spacing: 12) {
+                    RecipeSection(title: Strings.method, symbol: Images.numberedList) {
+                        ForEach(Array(recipe.instructions.enumerated()), id: \.offset) { index, instruction in
+                            HStack(alignment: .top, spacing: Metrics.spacing12) {
                                 Text("\(index + 1)")
                                     .font(.caption.bold())
-                                    .foregroundStyle(.white)
-                                    .frame(width: 25, height: 25)
-                                    .background(Color("Blueberry"), in: Circle())
+                                    .foregroundStyle(Color(uiColor: .systemBackground))
+                                    .frame(width: Metrics.spacing24, height: Metrics.spacing24)
+                                    .background(Colors.blueberry, in: Circle())
 
                                 Text(instruction)
                                     .fixedSize(horizontal: false, vertical: true)
                             }
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("\(index + 1). \(instruction)")
                         }
                     }
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, Metrics.spacing20)
             }
-            .padding(.vertical, 16)
+            .padding(.vertical, Metrics.spacing16)
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                FavouriteButton(recipeID: recipe.id, isFavourite: isFavourite)
+                FavouriteButton(recipeID: recipe.id)
             }
         }
     }
@@ -79,12 +81,21 @@ private struct RecipeSection<Content: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: Metrics.spacing16) {
             Label(title, systemImage: symbol)
                 .font(.title3.bold())
-                .foregroundStyle(Color("Blueberry"))
+                .foregroundStyle(Colors.blueberry)
 
-            VStack(alignment: .leading, spacing: 14, content: { content })
+            VStack(alignment: .leading, spacing: Metrics.spacing16, content: { content })
         }
     }
+}
+
+// MARK: - PREVIEW
+
+#Preview("Detail") {
+    NavigationStack {
+        RecipeDetailView(recipe: PreviewData.recipe)
+    }
+    .modelContainer(PreviewData.container)
 }

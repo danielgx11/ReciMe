@@ -1,59 +1,116 @@
+import SwiftData
 import SwiftUI
 
 struct BrowseView: View {
-    let store: RecipeStore
-    let favouriteIDs: Set<String>
+    let viewModel: RecipesViewModel
     @State private var criteria = RecipeSearchCriteria()
     @State private var isShowingFilters = false
-
-    private var results: [Recipe] { store.recipes.filter(criteria.matches) }
 
     var body: some View {
         NavigationStack {
             Group {
-                switch store.state {
+                switch viewModel.state {
                 case .idle, .loading:
-                    ProgressView("Opening your cookbook…")
+                    ProgressView(Strings.openingCookbook)
                 case let .failed(message):
-                    ContentUnavailableView("Cookbook unavailable", systemImage: "exclamationmark.triangle", description: Text(message))
-                case .loaded:
-                    if results.isEmpty {
-                        ContentUnavailableView.search(text: criteria.query)
-                    } else {
-                        ScrollView {
-                            LazyVStack(alignment: .leading, spacing: 20) {
-                                RecipesHeader(recipeCount: store.recipes.count)
-
-                                ResultHeader(count: results.count, criteria: criteria)
-
-                                LazyVGrid(columns: [GridItem(.adaptive(minimum: 164), spacing: 14)], spacing: 14) {
-                                    ForEach(results) { recipe in
-                                        RecipeCard(recipe: recipe, isFavourite: favouriteIDs.contains(recipe.id))
-                                    }
-                                }
-                            }
-                            .padding(.horizontal, 16)
-                            .padding(.bottom, 24)
+                    ContentUnavailableView {
+                        Label(Strings.cookbookUnavailable, systemImage: Images.warning)
+                    } description: {
+                        Text(message)
+                    } actions: {
+                        Button(Strings.tryAgain) {
+                            Task { await viewModel.search(using: criteria) }
                         }
-                        .background(Color(uiColor: .systemGroupedBackground))
+                    }
+                case .loaded:
+                    if viewModel.results.isEmpty {
+                        emptyResults
+                    } else {
+                        recipeGrid
                     }
                 }
             }
-            .navigationTitle("Cookbook")
-            .searchable(text: $criteria.query, prompt: "Search recipes or ingredients")
+            .navigationTitle(Strings.cookbook)
+            .searchable(text: $criteria.query, prompt: Strings.searchRecipes)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         isShowingFilters = true
                     } label: {
-                        Label("Filter recipes", systemImage: criteria.hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
+                        Label(
+                            Strings.filterRecipes,
+                            systemImage: criteria.hasActiveFilters ? Images.filledFilter : Images.filter
+                        )
                     }
-                    .accessibilityHint(criteria.hasActiveFilters ? "Filters applied" : "No filters applied")
+                    .accessibilityHint(criteria.hasActiveFilters ? Strings.filtersApplied : Strings.noFiltersApplied)
                 }
             }
             .sheet(isPresented: $isShowingFilters) {
                 FilterSheet(criteria: $criteria)
             }
+            .task(id: criteria) {
+                do {
+                    try await Task.sleep(for: .milliseconds(300))
+                } catch {
+                    return
+                }
+                await viewModel.search(using: criteria)
+            }
         }
     }
+
+    private var emptyResults: some View {
+        Group {
+            if criteria.hasActiveFilters {
+                ContentUnavailableView {
+                    Label(Strings.noResultsTitle, systemImage: Images.sliders)
+                } description: {
+                    Text(Strings.noResultsDescription)
+                } actions: {
+                    Button(Strings.clearFilters) {
+                        criteria = criteria.clearingAdvancedFilters
+                    }
+                }
+            } else {
+                ContentUnavailableView.search(text: criteria.query)
+            }
+        }
+    }
+
+    private var recipeGrid: some View {
+        ScrollView {
+            LazyVStack(alignment: .leading, spacing: Metrics.spacing8) {
+                RecipesHeader(recipeCount: viewModel.recipes.count)
+
+                ResultHeader(count: viewModel.results.count, criteria: criteria)
+                LazyVGrid(
+                    columns: [GridItem(.adaptive(minimum: Metrics.gridMinimumWidth), spacing: Metrics.spacing8)],
+                    spacing: Metrics.spacing16
+                ) {
+                    ForEach(viewModel.results) { recipe in
+                        RecipeCard(recipe: recipe)
+                    }
+                }
+            }
+            .padding(.horizontal, Metrics.spacing16)
+            .padding(.bottom, Metrics.spacing24)
+        }
+        .background(Color(uiColor: .systemGroupedBackground))
+    }
+}
+
+// MARK: - PREVIEWS
+
+#Preview("Browse") {
+    BrowseView(viewModel: RecipesViewModel())
+        .modelContainer(PreviewData.container)
+}
+
+#Preview("No results") {
+    BrowseView(viewModel: RecipesViewModel(repository: PreviewEmptyRepository()))
+        .modelContainer(PreviewData.container)
+}
+
+nonisolated private struct PreviewEmptyRepository: RecipeRepository {
+    func search(using criteria: RecipeSearchCriteria) async throws -> [Recipe] { [] }
 }
