@@ -1,0 +1,388 @@
+{
+    "recipes": [
+        {
+            "id": "recipe-001",
+            "imageName": "pudim",
+            "title": "Pudim de Leite Condensado",
+            "description": "Traditional Brazilian caramel flan baked in a water bath until silky smooth.",
+            "servings": 8,
+            "ingredients": [
+                "1 cup granulated sugar",
+                "1 can (395g) condensed milk",
+                "2 cups whole milk",
+                "3 large eggs"
+            ],
+            "instructions": [
+                "Melt sugar in a saucepan over medium heat until golden amber to form the caramel.",
+                "Pour caramel into a 20cm ring mold, coating the bottom and sides evenly.",
+                "Whisk condensed milk, whole milk, and eggs in a bowl until fully smooth.",
+                "Pour mixture into caramel-lined mold and cover with aluminum foil.",
+                "Bake in a water bath at 180°C for 60 minutes until set.",
+                "Chill in refrigerator for at least 4 hours before unmolding."
+            ],
+            "dietaryAttributes": ["Vegetarian", "Gluten-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-002",
+            "imageName": "moqueca",
+            "title": "Moqueca de Palmito e Cogumelos",
+            "description": "Fragrant Brazilian coconut stew made with hearts of palm, mushrooms, and dende oil.",
+            "servings": 4,
+            "ingredients": [
+                "300g hearts of palm, sliced",
+                "200g Paris mushrooms, halved",
+                "1 cup diced tomatoes",
+                "1 yellow bell pepper, sliced",
+                "1 onion, diced",
+                "3 cloves garlic, minced",
+                "200ml coconut milk",
+                "2 tbsp dende palm oil",
+                "2 tbsp olive oil",
+                "Fresh cilantro for garnish"
+            ],
+            "instructions": [
+                "Sauté onion and garlic in olive oil over medium heat until fragrant.",
+                "Add bell pepper, diced tomatoes, hearts of palm, and mushrooms to the pan.",
+                "Pour in coconut milk and dende oil, stirring gently to combine.",
+                "Simmer covered on low heat for 15 minutes until vegetables are tender.",
+                "Garnish with chopped fresh cilantro before serving hot."
+            ],
+            "dietaryAttributes": ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-003",
+            "imageName": "caprese",
+            "title": "Classic Caprese Pasta Salad",
+            "description": "Cold pasta tossed with ripe tomatoes, fresh mozzarella, basil, and garlic olive oil.",
+            "servings": 4,
+            "ingredients": [
+                "250g penne pasta",
+                "1.5 cups cherry tomatoes, halved",
+                "150g mini mozzarella balls, halved",
+                "3 tbsp olive oil",
+                "2 cloves garlic, minced",
+                "1/2 cup fresh basil leaves",
+                "2 tbsp balsamic glaze"
+            ],
+            "instructions": [
+                "Boil penne pasta in salted water until al dente; drain and rinse with cold water.",
+                "Whisk olive oil, minced garlic, salt, and pepper in a large mixing bowl.",
+                "Add chilled pasta, cherry tomatoes, and mozzarella to the dressing.",
+                "Toss ingredients gently and chill in the refrigerator for 20 minutes.",
+                "Drizzle with balsamic glaze and fresh basil before serving."
+            ],
+            "dietaryAttributes": ["Vegetarian", "Nut-Free"]
+        },
+        {
+            "id": "recipe-004",
+            "imageName": "avocado-salad",
+            "title": "Avocado Chickpea Salad",
+            "description": "A refreshing, protein-rich salad loaded with chickpeas, cherry tomatoes, and herbs.",
+            "servings": 2,
+            "ingredients": [
+                "1 can (400g) chickpeas, rinsed and drained",
+                "1 ripe avocado, diced",
+                "1 cup cherry tomatoes, halved",
+                "1/2 cucumber, diced",
+                "2 tbsp olive oil",
+                "1 tbsp lemon juice",
+                "1 clove garlic, minced",
+                "2 tbsp chopped cilantro"
+            ],
+            "instructions": [
+                "Whisk olive oil, lemon juice, minced garlic, salt, and pepper in a small bowl.",
+                "Combine chickpeas, cherry tomatoes, cucumber, and cilantro in a salad bowl.",
+                "Toss with dressing, then fold in diced avocado carefully.",
+                "Chill for 10 minutes before serving."
+            ],
+            "dietaryAttributes": ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-005",
+            "imageName": "cauliflower-rice",
+            "title": "Keto Cauliflower Fried Rice",
+            "description": "Low-carb garlic fried rice made with tender riced cauliflower and scrambled eggs.",
+            "servings": 2,
+            "ingredients": [
+                "1 head cauliflower, riced",
+                "2 large eggs, beaten",
+                "1/2 cup diced carrots and peas",
+                "2 cloves garlic, minced",
+                "1 tbsp sesame oil",
+                "2 tbsp gluten-free tamari",
+                "2 green onions, sliced"
+            ],
+            "instructions": [
+                "Heat half the sesame oil in a wok and scramble beaten eggs until set; set aside.",
+                "Add remaining oil and sauté garlic, carrots, and peas for 3 minutes.",
+                "Add riced cauliflower and sauté over high heat for 5 minutes.",
+                "Stir in soy sauce, scrambled eggs, and sliced green onions."
+            ],
+            "dietaryAttributes": ["Vegetarian", "Gluten-Free", "Dairy-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-006",
+            "imageName": "tomato-soup",
+            "title": "Creamy Tomato & Basil Soup",
+            "description": "Rich tomato soup simmered with garlic, butter, and cream, finished with fresh basil.",
+            "servings": 4,
+            "ingredients": [
+                "800g diced tomatoes, canned or fresh",
+                "1 onion, diced",
+                "3 cloves garlic, minced",
+                "2 tbsp unsalted butter",
+                "1/2 cup heavy cream",
+                "2 cups vegetable broth",
+                "1/4 cup fresh basil leaves"
+            ],
+            "instructions": [
+                "Melt butter in a pot and sauté onion and garlic until translucent.",
+                "Add diced tomatoes and vegetable broth; bring to a boil.",
+                "Simmer uncovered on medium-low heat for 20 minutes.",
+                "Blend soup until smooth using an immersion blender.",
+                "Stir in heavy cream and fresh basil, seasoning with salt and pepper."
+            ],
+            "dietaryAttributes": ["Vegetarian", "Gluten-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-007",
+            "imageName": "feijoada",
+            "title": "Traditional Brazilian Feijoada",
+            "description": "Iconic Brazilian black bean stew slow-simmered with salted beef, pork, and bacon.",
+            "servings": 10,
+            "ingredients": [
+                "500g dry black beans, soaked overnight",
+                "300g pork shoulder, cubed",
+                "200g smoked calabresa sausage, sliced",
+                "150g bacon, diced",
+                "200g salted beef, desalted and cubed",
+                "1 onion, diced",
+                "6 cloves garlic, minced",
+                "3 bay leaves",
+                "1 orange, halved"
+            ],
+            "instructions": [
+                "Boil soaked black beans in a large stockpot with bay leaves and orange halves.",
+                "In a skillet, sauté bacon, sausage, pork shoulder, and salted beef until browned.",
+                "Transfer meats to the bean pot and simmer on low heat for 2.5 hours.",
+                "Sauté onion and garlic in bacon fat until golden, then mash a cup of beans into the paste.",
+                "Stir garlic-bean paste back into the main pot to thicken sauce; simmer for 15 minutes."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Dairy-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-008",
+            "imageName": "tropeiro",
+            "title": "Feijão Tropeiro",
+            "description": "Hearty Brazilian miner's dish with beans, cassava flour, crispy bacon, and eggs.",
+            "servings": 6,
+            "ingredients": [
+                "3 cups cooked pinto beans, drained",
+                "1.5 cups cassava flour (farofa)",
+                "150g bacon, diced",
+                "200g smoked sausage, sliced",
+                "3 large eggs",
+                "1 onion, diced",
+                "4 cloves garlic, minced",
+                "2 cups collard greens, thinly sliced",
+                "2 tbsp olive oil"
+            ],
+            "instructions": [
+                "Fry diced bacon and sausage in a large skillet until crispy; set meats aside.",
+                "Scramble eggs in the remaining fat in the skillet until soft; set aside.",
+                "Sauté onion, garlic, and collard greens in olive oil until greens wilt.",
+                "Add cooked beans, bacon, sausage, and scrambled eggs back into skillet.",
+                "Gradually toss in cassava flour while stirring until well combined and toasted."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Dairy-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-009",
+            "imageName": "coxinha",
+            "title": "Brazilian Coxinha",
+            "description": "Teardrop-shaped croquettes stuffed with seasoned shredded chicken and cream cheese.",
+            "servings": 8,
+            "ingredients": [
+                "400g chicken breast, cooked and shredded",
+                "100g Brazilian cream cheese (catupiry or cream cheese)",
+                "2 cups chicken broth",
+                "2 cups all-purpose flour",
+                "2 tbsp butter",
+                "1 onion, diced",
+                "3 cloves garlic, minced",
+                "1 cup breadcrumbs"
+            ],
+            "instructions": [
+                "Sauté onion and garlic, add shredded chicken, season well, and mix with cream cheese.",
+                "Boil chicken broth and butter in a saucepan; add flour all at once and stir to form dough.",
+                "Knead dough on a clean surface once cool enough to handle.",
+                "Shape dough into small cups, fill with chicken mix, and pinch top into a teardrop.",
+                "Bake at 200°C for 25 minutes or deep fry until golden brown."
+            ],
+            "dietaryAttributes": ["Nut-Free"]
+        },
+        {
+            "id": "recipe-010",
+            "imageName": "stroganoff",
+            "title": "Brazilian Beef Stroganoff",
+            "description": "Tender beef strips in a creamy tomato-mustard sauce with mushrooms.",
+            "servings": 4,
+            "ingredients": [
+                "600g beef tenderloin, cut into strips",
+                "200g Paris mushrooms, sliced",
+                "1 cup diced tomatoes",
+                "1/2 cup heavy cream",
+                "2 tbsp ketchup",
+                "1 tbsp yellow mustard",
+                "1 onion, diced",
+                "3 cloves garlic, minced",
+                "2 tbsp butter"
+            ],
+            "instructions": [
+                "Melt butter in a pan and sear beef strips on high heat; remove and set aside.",
+                "Sauté onion, garlic, and sliced mushrooms in the same skillet until soft.",
+                "Add diced tomatoes, ketchup, and mustard; simmer for 5 minutes.",
+                "Return beef to pan, stir in heavy cream, and simmer on low heat for 3 minutes."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-011",
+            "imageName": "carnitas",
+            "title": "Slow-Roasted Pork Carnitas",
+            "description": "Juicy citrus and garlic marinated pork shoulder roasted until fork-tender and crispy.",
+            "servings": 8,
+            "ingredients": [
+                "1.5kg pork shoulder, cut into large chunks",
+                "6 cloves garlic, crushed",
+                "1 cup orange juice",
+                "1/4 cup lime juice",
+                "1 tbsp ground cumin",
+                "1 tbsp dried oregano",
+                "2 tbsp olive oil",
+                "1 onion, chopped"
+            ],
+            "instructions": [
+                "Rub pork chunks with garlic, cumin, oregano, salt, and olive oil.",
+                "Place pork, chopped onion, orange juice, and lime juice in a roasting pan.",
+                "Cover tightly with foil and roast at 150°C for 3.5 hours until tender.",
+                "Shred pork with two forks and broil on a baking sheet for 5 minutes until edges crisp."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Dairy-Free", "Keto", "Nut-Free"]
+        },
+        {
+            "id": "recipe-012",
+            "imageName": "lemon-chicken",
+            "title": "Grilled Lemon Herb Chicken",
+            "description": "Chicken breasts marinated in citrus, olive oil, garlic, and fresh herbs.",
+            "servings": 4,
+            "ingredients": [
+                "4 chicken breasts",
+                "3 tbsp olive oil",
+                "4 cloves garlic, minced",
+                "1 lemon, zested and juiced",
+                "1 tbsp fresh rosemary, chopped",
+                "1/2 tsp black pepper"
+            ],
+            "instructions": [
+                "Whisk olive oil, garlic, lemon zest, lemon juice, rosemary, salt, and black pepper.",
+                "Marinate chicken breasts in the mixture for at least 30 minutes in the fridge.",
+                "Preheat outdoor grill or cast-iron skillet to medium-high heat.",
+                "Grill chicken for 6-7 minutes per side until fully cooked."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Dairy-Free", "Keto", "Nut-Free"]
+        },
+        {
+            "id": "recipe-013",
+            "imageName": "beef-chili",
+            "title": "Classic Beef Chili",
+            "description": "Hearty ground beef chili cooked with kidney beans, diced tomatoes, and warm spices.",
+            "servings": 6,
+            "ingredients": [
+                "500g ground beef",
+                "1 can (400g) kidney beans, rinsed",
+                "1 can (400g) diced tomatoes",
+                "1 onion, diced",
+                "3 cloves garlic, minced",
+                "2 tbsp chili powder",
+                "1 tsp ground cumin",
+                "1 tbsp olive oil"
+            ],
+            "instructions": [
+                "Heat olive oil and brown ground beef with onion and garlic in a pot.",
+                "Add chili powder, cumin, diced tomatoes, and kidney beans.",
+                "Bring mixture to a gentle boil, then turn heat to low.",
+                "Simmer uncovered for 35 minutes until chili thickens."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Dairy-Free", "Nut-Free"]
+        },
+        {
+            "id": "recipe-014",
+            "imageName": "salmon",
+            "title": "Baked Salmon with Dill Butter",
+            "description": "Flaky salmon fillets baked with garlic-dill butter and fresh lemon slices.",
+            "servings": 2,
+            "ingredients": [
+                "2 salmon fillets",
+                "2 tbsp unsalted butter, softened",
+                "2 cloves garlic, minced",
+                "1 tbsp fresh dill, chopped",
+                "1 lemon, sliced",
+                "1 tbsp olive oil"
+            ],
+            "instructions": [
+                "Whisk softened butter, garlic, and chopped fresh dill together.",
+                "Place salmon fillets on a lined baking sheet and brush with olive oil.",
+                "Spread garlic-dill butter over fillets and top with lemon slices.",
+                "Bake at 200°C for 12 to 15 minutes until salmon flakes easily with a fork."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Keto", "Nut-Free"]
+        },
+        {
+            "id": "recipe-015",
+            "imageName": "lamb-rack",
+            "title": "Roast Herb-Crusted Lamb Rack",
+            "description": "Tender lamb rack seared and roasted with garlic, rosemary, and breadcrumbs.",
+            "servings": 2,
+            "ingredients": [
+                "1 rack of lamb (6-8 ribs)",
+                "2 tbsp olive oil",
+                "3 cloves garlic, minced",
+                "1 tbsp fresh rosemary, chopped",
+                "2 tbsp Dijon mustard",
+                "1/2 cup breadcrumbs"
+            ],
+            "instructions": [
+                "Sear lamb rack in a hot skillet with olive oil for 2 minutes per side; remove.",
+                "Brush cooked side of lamb with Dijon mustard.",
+                "Mix breadcrumbs, garlic, rosemary, salt, and pepper; press onto mustard coating.",
+                "Roast at 200°C for 20 minutes for medium-rare."
+            ],
+            "dietaryAttributes": ["Nut-Free"]
+        },
+        {
+            "id": "recipe-016",
+            "imageName": "fajitas",
+            "title": "Sheet-Pan Chicken Fajitas",
+            "description": "Easy oven-roasted chicken breast strips, sliced bell peppers, and onions.",
+            "servings": 4,
+            "ingredients": [
+                "500g chicken breasts, sliced into strips",
+                "2 bell peppers, sliced",
+                "1 onion, sliced",
+                "1 cup diced tomatoes",
+                "3 tbsp olive oil",
+                "3 cloves garlic, minced",
+                "1 tbsp chili powder",
+                "1 tsp cumin"
+            ],
+            "instructions": [
+                "Place chicken, bell peppers, onion, and diced tomatoes on a large baking sheet.",
+                "Toss ingredients with olive oil, minced garlic, chili powder, and cumin.",
+                "Spread in a single layer and roast at 210°C for 20 minutes until chicken is cooked through."
+            ],
+            "dietaryAttributes": ["Gluten-Free", "Dairy-Free", "Keto", "Nut-Free"]
+        }
+    ]
+
+}
