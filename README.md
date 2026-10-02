@@ -2,6 +2,13 @@
 
 Offline recipe browser for the ReciMe iOS assessment. Browse a small Brazilian cookbook, search, filter, open a recipe, and save favourites.
 
+## Project Screenshots
+
+<img width="390" height="844" alt="WhatsApp Image 2026-10-02 at 08 13 26" src="https://github.com/user-attachments/assets/6eed29a7-b7e9-4cba-944c-8a2caa2cb50e" />
+<img width="390" height="844" alt="WhatsApp Image 2026-10-02 at 08 13 27" src="https://github.com/user-attachments/assets/5d50c796-28af-4f3e-a136-46bd5c015c6f" />
+<img width="390" height="844" alt="WhatsApp Image 2026-10-02 at 08 13 27-2" src="https://github.com/user-attachments/assets/b9a116eb-bcd4-4284-8c0e-389ee9fa7db3" />
+<img width="390" height="844" alt="WhatsApp Image 2026-10-02 at 08 13 27-3" src="https://github.com/user-attachments/assets/2d7741f2-ca6d-4995-9347-125a2bf7c262" />
+
 ## Run
 
 - Clone this repo.
