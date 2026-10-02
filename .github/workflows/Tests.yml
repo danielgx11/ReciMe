@@ -1,0 +1,24 @@
+# This is a basic workflow to test our code when you create a new PR
+
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+# Tests running on iPhone 17
+
+jobs:
+  test:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: >
+          xcodebuild test
+          -project ReciMe/ReciMe.xcodeproj
+          -scheme ReciMe
+          -destination 'platform=iOS Simulator,name=iPhone 17'
+          CODE_SIGNING_ALLOWED=NO
+
