@@ -78,10 +78,10 @@ struct RecipeSearchTests {
     @Test func addingATermRemovesItFromTheOtherList() {
         var included: [String] = []
         var excluded = ["Tomato"]
-        #expect(RecipeSearchCriteria.addTerm(" tomato ", into: &included, other: &excluded))
+        #expect(RecipeSearchCriteria.addTerm(" tomato ", into: &included, othersTerms: &excluded))
         #expect(included == ["tomato"])
         #expect(excluded.isEmpty)
-        #expect(!RecipeSearchCriteria.addTerm("tomato", into: &included, other: &excluded))
+        #expect(!RecipeSearchCriteria.addTerm("tomato", into: &included, othersTerms: &excluded))
     }
 
     @Test func clearingAdvancedFiltersKeepsTheQuery() {
