@@ -1,10 +1,4 @@
-//
-//  OneShotFailureRepository.swift
-//  ReciMe
-//
-//  Created by Daniel Gomes Xavier on 01/10/26.
-//
-
+@testable import ReciMe
 
 actor OneShotFailureRepository: RecipeRepository {
     private var failed = false

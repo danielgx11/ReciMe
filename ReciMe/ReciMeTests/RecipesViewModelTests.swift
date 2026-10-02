@@ -1,19 +1,15 @@
-//
-//  RecipesViewModelTests.swift
-//  ReciMe
-//
-//  Created by Daniel Gomes Xavier on 01/10/26.
-//
-
+import Foundation
+import Testing
+@testable import ReciMe
 
 @MainActor
 struct RecipesViewModelTests {
     @Test func searchLoadsRecipes() async {
-        let viewModel = RecipesViewModel(repository: StubRepository(recipes: [vegetarianPasta]))
+        let viewModel = RecipesViewModel(repository: StubRepository(recipes: [Recipe.vegetarianPasta]))
         await viewModel.search(using: .init())
         #expect(viewModel.state == .loaded)
-        #expect(viewModel.recipes == [vegetarianPasta])
-        #expect(viewModel.results == [vegetarianPasta])
+        #expect(viewModel.recipes == [Recipe.vegetarianPasta])
+        #expect(viewModel.results == [Recipe.vegetarianPasta])
     }
 
     @Test func failedSearchCanBeRetried() async {
@@ -33,4 +29,20 @@ struct RecipesViewModelTests {
         #expect(viewModel.state != .failed(Strings.loadFailed))
         #expect(Date().timeIntervalSince(started) < 1)
     }
+}
+
+extension Recipe {
+    static var vegetarianPasta: Recipe {
+        .init(
+        id: "pasta",
+        imageName: "pasta",
+        title: "Tomato Pasta",
+        description: "Quick dinner",
+        servings: 4,
+        ingredients: ["Penne", "Cherry tomatoes", "Basil"],
+        instructions: ["Simmer the tomatoes for 10 minutes."],
+        dietaryAttributes: [.vegetarian]
+    )
+    }
+
 }

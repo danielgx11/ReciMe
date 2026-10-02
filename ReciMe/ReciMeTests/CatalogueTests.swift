@@ -1,3 +1,7 @@
+import Foundation
+import Testing
+@testable import ReciMe
+
 @MainActor
 struct CatalogueTests {
     @Test func bundledCatalogueHasUniqueIDsAndImageNames() throws {
@@ -18,3 +22,5 @@ struct CatalogueTests {
         }
     }
 }
+
+private final class TestBundleAnchor {}

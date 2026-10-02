@@ -1,3 +1,8 @@
+import Foundation
+import SwiftData
+import Testing
+@testable import ReciMe
+
 struct FavouriteStoreTests {
     @Test func addsAndRemovesAFavourite() throws {
         let container = try ModelContainer(
